@@ -10,6 +10,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.security.web.context.SecurityContextPersistenceFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -20,6 +21,7 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		http.addFilterBefore (new MyFilter3 (), SecurityContextPersistenceFilter.class);
 		http.csrf(csrf -> csrf.disable());
 		http.cors(cors -> cors.configurationSource(corsConfig.corsConfigurationSource()));
 		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
