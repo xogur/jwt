@@ -16,7 +16,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
         // 로그인 처리 URL 지정 (기본은 "/login")
-        // React 등에서 "/login" 으로 POST 보내면 이 필터가 동작함
+        // React 등에서 "/login" 으로 POST 보내면 이 필터가 동작함:
     }
 
 
